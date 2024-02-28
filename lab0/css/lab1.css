@@ -1,0 +1,128 @@
+.container{
+    margin: 12px 0px 0px 20px;
+    width: 22%;
+    display: inline-grid;
+    grid-template-columns: 98%;
+    grid-auto-flow: row;
+}
+.Lenta{
+    border: 5px double black;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    background-color: purple;
+    color: violet;
+    text-shadow: whitesmoke 1px 0 10px;
+}
+.Lenta:hover{
+    background-color: rgba(128,0,128,0.5);
+}
+[class^='Lenta_inside']:hover{
+	background-color: rgba(10,10,10,0.8);
+}	
+li{
+    list-style-type: none;
+}
+body,html{
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    text-shadow: whitesmoke 1px 0 10px;
+    display: block;
+}
+.link_div-1{
+    grid-row: 1;
+    grid-column: 1;
+    border-radius: 10px 10px 0px 0px;
+	background-color: tan;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: gold;
+}
+.link_div-2{
+    border-radius: 0px 0px 10px 10px;
+	background-color: tan;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: gold;
+}
+.link_div-3{
+    border-radius: 10px 10px 0px 0px;
+    background-color: violet;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: blue;
+}
+.link_div-4{
+    background-color: violet;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: blue;
+}
+.link_div-5{
+    border-radius: 0px 0px 10px 10px;
+    background-color: violet;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: blue;
+}
+a:hover{
+    background-color: rgba(10,10,10,0.6);
+}
+[class^='link_div'] {
+    border: 1px double black;
+    text-align: center;
+    justify-content: center;
+}
+.Lenta_inside{
+    padding: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    background-color: purple;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: violet;
+    border-radius: 10px;
+}
+
+.Lenta_inside-1{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    background-color: tan;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: gold;
+    border-radius: 10px;
+}
+.Lenta_inside-2{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+    background-color: violet;
+    text-shadow: whitesmoke 1px 0 10px;
+    color: blue;
+    border-radius: 10px;
+}
+@media screen and (min-width: 500px){
+    
+    .container{
+        width: 25%;
+        margin: 20px 0px 0px 12px;
+        display: inline-grid;
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+    }
+    .Lenta{
+        padding: 10px;
+        border: 5px double black;
+        border-radius: 10px;
+        list-style: none;
+        text-align: center;
+        background-color: purple;
+        text-shadow: whitesmoke 1px 0 10px;
+    }
+}
