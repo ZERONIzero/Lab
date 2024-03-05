@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Гдз онлайн калькулятор</title>
+    <link link rel="stylesheet" href="css/lab_S.css" type="text/css">
+</head>
+    <body style="background-image: url('img/pattern-levitate-squares.png');">
+        <section class="One">
+            <h1 class="Hnumber">Задание 2</h1>
+            <math display="block" style="padding-bottom:21px;font-size:36px">
+                <mi>b</mi>
+                <mo>=</mo>
+                <mi>z</mi>
+                <mo stretchy="false">(</mo>
+                <mi>tan</mi>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <mo stretchy="false">(</mo>
+                <mi>y</mi>
+                <mo stretchy="false">)</mo>
+                <mo>&#x2212;<!-- − --></mo>
+                <msup>
+                    <mi>e</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                        <mo>&#x2212;<!-- − --></mo>
+                        <mo stretchy="false">(</mo>
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mn>3</mn>
+                        <mo stretchy="false">)</mo>
+                    </mrow>
+                </msup>  
+                <mo stretchy="false">)</mo>
+            </math>
+            <p style="padding-left: 22px; padding-bottom: 10px;">Вычислите значение b при :</p>
+            <section style="display: flex; justify-content: space-between; padding-left: 21px; padding-right: 21px;">
+                <input type="number" placeholder="Give me value x :" id="x_val">
+                <input type="number" placeholder="Give me value y :" id="y_val">
+                <input type="number" placeholder="Give me value z :" id="z_val">
+            </section>
+            <section style="padding: 22px 0px 10px 22px;">
+                <button class="Answer" onclick="print_res()">Получить ответ!</button>
+                <span style="display: inline-block;padding-top: 12px; padding-left: 12px;">Ответ : </span>
+                <span style="display: inline-block;" id="res-2"></span>
+                <script>
+                    function print_res()
+                    {
+                        let x = parseFloat(document.getElementById('x_val').value).toFixed(2);
+                        let y = parseFloat(document.getElementById('y_val').value).toFixed(2);
+                        let z = parseFloat(document.getElementById('z_val').value).toFixed(2);
+                        if (isNaN(x))
+                        {
+                            x=parseFloat(0).toFixed(2);
+                        }
+                        if (isNaN(y))
+                        {
+                            y=parseFloat(0).toFixed(2);
+                        }
+                        if (isNaN(z))
+                        {
+                            z=parseFloat(0).toFixed(2);
+                        }
+                        let b=parseFloat(z*(Math.tan(y)-Math.exp(-x-3))).toFixed(2);
+                        document.getElementById('res-2').innerHTML = b;
+                    }
+                </script>
+            </section>
+        </section>
+        <section class="One">
+            <h1 class="Hnumber">Задание 1</h1>
+            <section style="display:flex; justify-content:space-around;font-size:36px;padding-bottom: 25px;">
+                <span>V=abc</span><span>S=2(a+b)+c</span>
+            </section>
+            <p style="padding-left: 22px; padding-bottom: 10px;">Вычислите объём и площадь боковой поверхности параллелепипеда со сторонами а, b, c :</p>
+            <section style="display: flex; justify-content: space-between; padding-left: 21px; padding-right: 21px;">
+                <input type="number" placeholder="Give me value a :" id="a_val" min="0">
+                <input type="number" placeholder="Give me value b :" id="b_val" min="0">
+                <input type="number" placeholder="Give me value c :" id="c_val" min="0">
+            </section>
+            <section style="padding: 22px 0px 10px 22px;">
+                <button class="Answer" onclick="print_res1()">Получить ответ!</button>
+                <span style="display: inline-block;padding-top: 12px; padding-left: 12px;">Ответ : </span>
+                <span style="display: inline-block;" id="res-1"></span>
+                <script>
+                    function print_res1()
+                    {
+                        let a = parseFloat(document.getElementById('a_val').value).toFixed(2);
+                        let b = parseFloat(document.getElementById('b_val').value).toFixed(2);
+                        let c = parseFloat(document.getElementById('c_val').value).toFixed(2);
+                        if (isNaN(a))
+                        {
+                            a=parseFloat(0).toFixed(2);
+                        }
+                        if (isNaN(b))
+                        {
+                            b=parseFloat(0).toFixed(2);
+                        }
+                        if (isNaN(c))
+                        {
+                            c=parseFloat(0).toFixed(2);
+                        }
+                        let V=parseFloat(a*b*c).toFixed(2);
+                        let S=parseFloat(2*(parseFloat(a)+parseFloat(b))+parseFloat(c)).toFixed(2);
+                        document.getElementById('res-1').innerHTML = String("V= ")+V+String(" S= ")+S;
+                    }
+                </script>
+            </section>
+        </section>
+    </body>
+</html>

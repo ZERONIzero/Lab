@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Чек за покупку</title>
+    <link rel="stylesheet" href="../lab1/css/lab1.css">
+</head>
+<body>
+    <section class="cash_receipt">
+        <h2 class="Cash">Кассовый чек</h2>
+        <sub id="time"></sub>
+        <div class="Itog">
+            <h1>Итого</h1>
+            <span id="res"></span>
+        </div>
+        <table>
+            <tbody>
+                <tr class="info">
+                    <td style="text-align: left;">Товар или услуга</td>
+                    <td style="text-align: right;">Количество</td>
+                    <td style="text-align: right;">Цена, ₽</td>
+                    <td style="text-align: right;">Сумма, ₽</td>
+                </tr>
+                <script>
+                    var currentdate = new Date(); 
+                    var datetime = currentdate.getDate() + "."
+                        + (currentdate.getMonth()+1)  + "." 
+                        + currentdate.getFullYear() + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0"  
+                        + currentdate.getHours() + ":"  
+                        + currentdate.getMinutes() + ":" 
+                        + currentdate.getSeconds();
+                    document.getElementById('time').innerHTML = datetime;
+                    alert("Спасибо за покупку ООО 'Евроторг'");
+                    let product = [];
+                    let kol_list = [];
+                    let itog=0.0;
+                    let n = parseInt(prompt("Напишите пожалуйста количество товаров", "от 1 до infiniti"));
+                    for (let i=0; i < n; i++)
+                    {
+                        document.writeln("<tr class='info-1'><td style='text-align:left'>Товар номер "+(i+1)+"</td>")
+                        product.push(parseFloat(prompt("Введите цену товара "+(i+1), "")));
+                        let kol = parseInt(prompt("Введите количество товара "+(i+1),""));
+                        if (kol <= 0)
+                        {
+                            alert("Введено недопустимое значение параметра (Количество товара)");
+							kol=1;
+                        }
+                        document.writeln("<td style='text-align: right'>"+kol+"</td><td style='text-align: right'>"+product[i].toFixed(2)+"</td>")
+                        kol_list.push(kol);
+                        product[i]=(product[i]*kol);
+                        document.writeln("<td style='text-align:right'>"+product[i]+"</td></tr>")
+                    }
+                    let discount=parseInt(prompt("Напишите пожалуйста вашу скидку", "от 1 до 5"));
+                    if (discount<=0 || discount>=6)
+                    {
+                        alert("Обманывать-не хорошо!")
+                        discount=1;
+                    }
+                    for ( let i=0;i < n; i++)
+                    {
+                        itog=parseFloat(itog+product[i]);
+                    }
+                    let itog1=parseFloat(itog-((itog*discount)/100));
+                    itog1=itog1.toFixed(2)+" ₽";
+                    document.getElementById('res').innerHTML = itog1;
+                </script>
+            </tbody>
+        </table>
+        <div class='Itog'>
+            <h3>Электронный платёж</h3>
+            <span id="final"></span>
+        </div>
+        </br>
+        <span>Ваша скидка </span><span id="skid"></span><span>%</span>
+        <span id="minus" style="text-align: right; color:gray;"></span>
+        <script>
+            document.getElementById('final').innerHTML = itog+" ₽";
+            document.getElementById('skid').innerHTML = discount;
+            let min=parseFloat((itog*discount)/100)
+            document.getElementById('minus').innerHTML =min.toFixed(2)+" ₽";
+        </script>
+        <p style="text-align: right;">
+            <img src="http://qrcoder.ru/code/?https%3A%2F%2Fyoutu.be%2FvRkB1ygvyYE%3Fsi%3DUp_kppMPIv-WWKeX&4&0" width="246" height="246" border="0" title="QR код">
+        </p>
+    </section>
+</body>
+</html>
