@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Первая программа на JavaScript</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        alert("Мое первое диалоговое окно");
+        const answer = confirm(
+        "Хотите продолжить выполнения сценария на JavaScript"
+        );
+        if (answer) {
+        const name = prompt("Введите ваше имя", "");
+        alert(name + ", y вас уже начинает получаться!!!");
+        } else alert("Жаль, можно было бы еще поработать!");
+    </script>
+</body>
+</html>
