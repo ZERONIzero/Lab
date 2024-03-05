@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Линейные алгоритмы</title>
+</head>
+<body>
+    <script>
+    "use strict";
+    let n = parseInt(prompt("Введите количество углов n", ""));
+    let r = parseInt(prompt("Введите радиус r", ""));
+    let a = 2 * r * Math.tan(Math.PI / n);
+    let p = a * n;
+    let s = (1 / 2) * n * a * r;
+    alert("Площадь = " + s.toFixed(2));
+    alert("Периметр = " + p.toFixed(2));
+    </script>
+</body>
+</html>
