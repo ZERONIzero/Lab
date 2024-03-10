@@ -1,0 +1,28 @@
+<script>
+    "use strict";
+    
+    let guess = Math.random() * 100; // генерация случайного числа
+    guess = Math.floor(guess); // отбрасывание дробной части
+    let f = true;
+    let number;
+    let count = 0;
+    let answer = confirm("Сыграем?");
+    if (answer)
+    {
+        while (f) 
+        {
+            number = parseInt(prompt("введите число"));
+            count++;
+            if (number == guess) {
+                alert("Вы угадали\n количество попыток: " + count);
+                f = false;
+            } else if (number > guess) {
+                alert("Число меньше, попробуйте еще раз");
+            } else {
+                alert("Число больше, попробуйте еще раз");
+            }
+        }
+    } 
+    else 
+        alert("Жаль.\nМожет быть в другой раз?");
+    </script>

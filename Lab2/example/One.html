@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Использование оператора IF</title>
+</head>
+<body>
+    <script>
+    "use strict";
+    document.write("<p style='text-align:center'>Использование оператора<strong>IF</strong></p>");
+    let age = 24;
+    if (age < 18)
+        document.write("Вы слишком молоды для просмотра этого сайта"); // ничего не выводится
+    age = 10;
+    if (age < 18)
+        document.write("Вы слишком молоды для просмотра этого сайта"); // выводится сообщение
+    document.write("<p style='text-align:center'>Использование оператора <strong>IF</strong> с блоком <strong>ELSE</strong></p>");
+    let s = "плохо";
+    if (s == "хорошо")
+        document.write("Я в хорошем настроении!");
+    else 
+        document.write("Мне ", s);
+    document.write("<p style='text-align:center'>Использование оператора<strong>IF</strong> с блоками <strong>ELSE IF</strong></p>");
+    if (s == "хорошо") {
+        document.write("Я в хорошем настроении!");
+    } else if (s == "плохо") {
+        document.write("He отчаивайтесь!");
+    } else {
+    document.write("Непонятно, просто", s);}
+    </script>
+</body>
+</html>

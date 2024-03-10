@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <link link rel="stylesheet" href="css/start.css" type="text/css">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+    <body style="background-image: url('img/rty.jpg');">
+        <section class="okno" style="font-family: 'Unique';">
+            <figure class="flag">
+                <img id="lang_flag">
+            </figure>
+            <h1>language determinant</h1>
+            <input type="text" placeholder="Example: ru" id="language" class="write">
+            <button class="answer" onclick="print_res()">RESULT</button>
+            </figure>
+            <script>
+                function print_res()
+                {
+                    let lang = (document.getElementById('language').value).toString();
+                    let way = "img/";
+                    if (lang=="rus")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Русский язык");
+                    }
+                    else if (lang=="cn")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Китайский язык");
+                    }
+                    else if (lang=="de")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Немецкий язык");
+                    }
+                    else if (lang=="en")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Английский язык");
+                    }
+                    else if (lang=="fr")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Французский язык");
+                    }
+                    else if (lang=="ind")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Индийский язык");
+                    }
+                    else if (lang=="jp")
+                    {
+                        document.getElementById("lang_flag").src= way+lang+".png";
+                        alert("Японский язык");
+                    }
+                    else
+                    {
+                        alert("Язык неизвестен");
+                    }
+                }
+            </script>
+        </section>
+    </body>
+</html>

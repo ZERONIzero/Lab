@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-image: url('img/white-paper.png');">
+    <script>
+        const answer = confirm("Хотите запустить выполнение сценария на JavaScript");
+        if (answer){
+            create_table()
+        }
+        else
+        {
+            alert("Ура!");
+        }
+        function create_table() 
+        {
+            const sect = document.createElement('section');
+            sect.style.display='flex';
+            sect.style.alignContent='center';
+            sect.style.justifyContent='center';
+            sect.style.paddingLeft='auto';
+            sect.style.paddingRight='auto';
+            sect.setAttribute("id", "mySection");
+            const tbl = document.createElement('table');
+            tbl.style.width='80%';
+            tbl.style.border = '1px solid black';
+            tbl.style.textAlign="center";
+            let n = 0;
+
+            for (let i = 0; i < 10; i++) {
+                const tr = tbl.insertRow();
+                for (let j = 0; j < 10; j++) {
+                    const td = tr.insertCell();
+                    n++;
+                    if (test(n)) {
+                        td.appendChild(document.createTextNode(`${n}`));
+                        td.style.color = "red";
+                    } else
+                        td.appendChild(document.createTextNode(`${n}`));
+                    
+                    td.style.padding = '5px';
+                    td.style.border = '1px solid blue';
+                }
+            }
+            document.body.appendChild(sect);
+            document.getElementById("mySection").appendChild(tbl);
+        }
+
+
+        function test(num) {
+            for (let col = 1; col <= 14; col++) {
+                if (num == col * (col + 1) / 2)
+                    return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <link link rel="stylesheet" href="css/start1.css" type="text/css">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-image: url('img/2-3.png');">
+    <section style="background-color: #2c2c2c;">
+        <math display="flex"  class="math">
+            <mi>y</mi>
+            <mo>=</mo>
+            <mrow>
+                <mo>{</mo>
+                <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+                <mtr>
+                    <mtd>
+                        <msqrt>
+                            <mi>x</mi>
+                            <mo>&#x2212;<!-- − --></mo>
+                            <mn>1</mn>
+                        </msqrt>
+                    </mtd>
+                    <mtd>
+                        <mrow class="MJX-TeXAtom-ORD">
+                            <mo>&#x435;</mo>
+                        </mrow>
+                        <mrow class="MJX-TeXAtom-ORD">
+                            <mo>&#x441;</mo>
+                        </mrow>
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x43B;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x438;</mo>          
+                        </mrow>          
+                        <mi>&#x25FB;<!-- ◻ --></mi>          
+                        <mi>x</mi>          
+                        <mo>&gt;=</mo>          
+                        <mn>10</mn>          
+                        <mo>,</mo>          
+                        <mi>x</mi>          
+                        <mo>&#x2260;<!-- ≠ --></mo>          
+                        <mn>20</mn>        
+                    </mtd>      
+                </mtr>      
+                <mtr>        
+                    <mtd>          
+                        <mn>1</mn>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>/</mo>          
+                        </mrow>          
+                        <mo stretchy="false">(</mo>          
+                        <mi>x</mi>          
+                        <mo>+</mo>          
+                        <msup>            
+                            <mi>e</mi>            
+                            <mrow class="MJX-TeXAtom-ORD">              
+                                <mn>2</mn>              
+                                <mi>x</mi>            
+                            </mrow>          
+                        </msup>          
+                        <mo stretchy="false">)</mo>        
+                    </mtd>        
+                    <mtd>          
+                        <mi>x</mi>          
+                        <mo>&lt;</mo>          
+                        <mn>0</mn>        
+                    </mtd>      
+                </mtr>      
+                <mtr>        
+                    <mtd>          
+                        <mi>ln</mi>          
+                        <mo>&#x2061;<!-- ⁡ -->
+                        </mo>          
+                        <mo stretchy="false">(</mo>          
+                        <mi>x</mi>          
+                        <mo>+</mo>          
+                        <mn>1</mn>          
+                        <mo stretchy="false">)</mo>        
+                    </mtd>        
+                    <mtd>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x432;</mo>          
+                        </mrow>          
+                        <mi>&#x25FB;<!-- ◻ --></mi>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x43E;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x441;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x442;</mo>          
+                        </mrow>          
+                        <mi>&#x25FB;<!-- ◻ --></mi>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x441;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x43B;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x443;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x447;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x430;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x44F;</mo>          
+                        </mrow>          
+                        <mrow class="MJX-TeXAtom-ORD">            
+                            <mo>&#x445;</mo>          
+                        </mrow>        
+                    </mtd>      
+                </mtr>    
+            </mtable>    
+            <mo fence="true" stretchy="true"></mo>  
+            </mrow>
+        </math>
+        <input type="number" placeholder="Give me value x :" id="x_val" min="-1000">
+        <button class="answer" onclick="print_res()">RESULT</button>
+    </section>
+    <section style="background-color: #2c2c2c; font-size: 18px; text-align: center;">
+        <span id="res_test"></span>
+    </section>
+    <script>
+        function getln(value_x)
+        {
+            return Math.log(value_x)/Math.log(Math.exp(1));
+        }
+        function print_res()
+        {
+            let value_x = parseInt(document.getElementById('x_val').value);
+            let res=0.0;
+            if (value_x >= 10 && value_x!=20)
+            {
+                res=parseFloat(Math.sqrt(value_x-1));
+            }
+            else if (value_x<0)
+            {
+                res=parseFloat(1/(value_x+Math.exp(2*value_x)));
+            }
+            else
+            {
+                res=parseFloat(getln(value_x+1));
+            }
+            document.getElementById('res_test').innerHTML = "Ответ : " + res;
+        }
+    </script>
+</body>
+</html>

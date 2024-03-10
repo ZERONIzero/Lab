@@ -1,0 +1,18 @@
+<script>
+    "use strict";
+    //Пример нахождения большего среди трех чисел
+    document.write("<p style='text-align:center'>Пример определения большего c числа</p>");
+    let a = 1;
+    let b = 22;
+    let c = 3;
+    if (a > b && a > c) 
+        document.write("Наибольшее среди трех чисел - a=", a);
+    else if (b > c) 
+        document.write("Наибольшее среди трех чисел - b=", b);
+    else 
+        document.write("Наибольшее среди трех чисел - c=", c);
+    //Использование тернарной операции
+    let max = a > b ? a : b;
+    max = max > c ? max : c;
+    document.write("<p>Значение наибольшее среди трех чисел - ", max);
+</script>

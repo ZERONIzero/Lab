@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <link link rel="stylesheet" href="css/start1.css" type="text/css">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-image: url('img/2-3.png');">
+    <section style="background-color: #2c2c2c;">
+        <math display="flex"  class="math">
+            <msub>
+                <mi>log</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>e</mi>
+                </mrow>
+              </msub>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>=</mo>
+              <mo>&#x2212;<!-- − --></mo>
+              <munderover>
+                <mo>&#x2211;<!-- ∑ --></mo>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo>&#x221E;</mo>
+                </mrow>
+              </munderover>
+              <mfrac>
+                <msup>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>n</mi>
+                  </mrow>
+                </msup>
+                <mi>n</mi>
+              </mfrac>
+              <mo>,</mo>
+              <mo>&#x2212;<!-- − --></mo>
+              <mn>1</mn>
+              <mo>&#x2264;<!-- ≤ --></mo>
+              <mi>x</mi>
+              <mo>&#x2264;<!-- ≤ --></mo>
+              <mn>1</mn>
+        </math>
+        <input type="text" placeholder="Give me x :" id="x_val" style="width: 120px;">
+        <input type="number" placeholder="Give me n :" id="n_val" min="-1000" style="width: 120px;">
+        <button class="answer" onclick="print_res_five()">RESULT</button>
+    </section>
+    <section style="background-color: #2c2c2c; font-size: 18px; text-align: center;">
+        <span id="res_test"></span>
+    </section>
+    <script>
+        function print_res_five()
+        {
+            let value_x = parseFloat(document.getElementById('x_val').value);
+            let value_n = parseInt(document.getElementById('n_val').value);
+            let res=0;
+            let i=1;
+            try{
+                if (isNaN(parseFloat(value_x))!=true && isNaN(parseFloat(value_n))!=true)
+                {
+                    if (parseFloat(value_x)>=-1 && parseFloat(value_x)<=1)
+                    {
+                        do{
+                            res=parseFloat(res+((-1)*(Math.pow(value_x,i)/i)));
+                            i++;
+                        } while(i < (parseInt(value_n+1)));
+                        document.getElementById('res_test').innerHTML = "Ответ : " + res;
+                    }
+                    else
+                    {
+                        throw new Error("Переменная x вышла за пределы -1 &#x2264 x &#x2264 1");
+                    }
+                }
+                else
+                {
+                    throw new Error("Нет данных x or n");
+                }
+            }
+            catch(error)
+            {
+                document.getElementById('res_test').innerHTML = "Ошибка : " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
