@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;" onLoad="rez()">
+    <section style="color: antiquewhite;" id="treug_massiv"></section>
+    <section style="color: antiquewhite;" id="kvd_massiv"></section>
+    <section style="color: antiquewhite;" id="rez_massiv"></section>
+    <section style="color: antiquewhite;" id="revers_massiv"></section>
+    <script>
+        function treug()
+        {
+            let out = document.getElementById('treug_massiv');
+            let str='Значение массива treug : ';
+            treug_m = [];
+            let count = 0;
+            for (let n = 1; n <= 10; n++)
+            {           
+                treug_m[count] = (n*(n+1))/2;
+                str=str+"&nbsp"+'&nbsp'+treug_m[count];
+                count++;
+            }
+            out.innerHTML = str;
+            return treug_m;
+        }
+
+        function kvd()
+        {
+            kvd_m = [];
+            let out = document.getElementById('kvd_massiv');
+            let str='Значение массива kvd : ';
+            for (count = 0; count < 10; count++)
+            {
+                kvd_m[count] = Math.pow(count+1, 2);
+                str=str+"&nbsp"+"&nbsp"+kvd_m[count];
+            }
+            out.innerHTML = str;
+            return kvd_m;
+        }
+
+        function rez()
+        {
+            treug();
+            kvd();
+            let rez_m=[];
+            rez_m=[...treug_m, ...kvd_m];
+            let count=rez_m.length;
+            let out = document.getElementById('rez_massiv');
+            new_str="Значение массива rez : "
+            for (i=0 ; i < count ; i++)
+            {
+                new_str=new_str+"&nbsp"+"&nbsp"+rez_m[i];
+            }
+            out.innerHTML = new_str;
+            let rez_rev=rez_m;
+            rez_rev.sort(function (treug_m, kvd_m) {  treug_m - kvd_m;  });
+            rez_rev.reverse();
+            let out_new = document.getElementById('revers_massiv');
+            new_str1="Значение массива rez_sort_revers : "
+            for (i=0 ; i < count ; i++)
+            {
+                new_str1=new_str1+"&nbsp"+"&nbsp"+rez_rev[i];
+            }
+            out.innerHTML = new_str1;
+        }
+    </script>
+</body>

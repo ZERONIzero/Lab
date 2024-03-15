@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c; color: antiquewhite;" onLoad="rez()">
+    <section style="color: antiquewhite;" id="rand"></section>
+    <section style="color:antiquewhite;" id="rand_res"></section>
+    <script>
+        const length = 15;
+        const min = -650;
+        const max = 650;
+        const numbers = [...Array(length)];
+        let out = document.getElementById('rand');
+        let str="Random_array : ";
+        for (let i = 0; i < length; i++)
+        {
+            numbers[i] = Math.random() * (max - min) + min;
+            if (i%5==0){
+                str+="\n";
+            }
+            str+="&nbsp"+"&nbsp"+"&nbsp"+numbers[i]; 
+        }
+        out.innerHTML = str;
+        let min_value = numbers[0];
+        let index = 0;
+        for (let i1 = 0; i1 < length; i1++)
+        {
+            if (numbers[i1] < min_value)
+            {
+                min_value = numbers[i1];
+                index = i1;
+            }
+        }
+        numbers[index]=9999;
+        numbers[0]=min_value;
+        document.write("Min_value : ",min_value);
+        let out1 = document.getElementById('rand_res');
+        let str1="Random_array_swap : ";
+        for (let i2 = 0; i2 < length; i2++)
+        {
+            if (i2%5==0){
+                str1+="\n";
+            }
+            str1+="&nbsp"+"&nbsp"+"&nbsp"+numbers[i2]; 
+        }
+        out1.innerHTML = str1;
+    </script>
+</body>
+</html>

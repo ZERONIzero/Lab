@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c; color: antiquewhite;">
+    <script>
+        fruits = ["apple", "pineapple", "mango", "melon", "grape"];
+        citrus = ["orange", "lemon", "lime"];
+
+        document.write("<span>Вывод массива fruits : </span>");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        document.write("</br><span>Вывод массива citrus : </span> ");
+        document.write(citrus.join("&nbsp;&nbsp"));
+
+        fruits = fruits.concat(citrus);
+        document.write("</br></br><span>Вывод массив fruits+citrus : </span> ");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        fruits.splice(fruits.findIndex(num => num == "mango") + 1, 0, "pear", "cherry", "plum", "raspberry", "strawberry");
+        document.write("</br></br><span>Вывод массива после добавления (pear,cherry,plum,raspberry,strawberry) : </span> ");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        fruits.splice(fruits.length - 3, 3);
+        document.write("</br></br><span>Вывод массива после удаления последних 3 элементов : </span>");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        fruits.sort();
+        document.write("</br></br><span>Вывод отсортированного массива по алфавиту : </span> ");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        fruits.reverse();
+        document.write("</br></br><span>Вывод reverse отсортированного массива по алфавиту : </span> ");
+        document.write(fruits.join("&nbsp;&nbsp"));
+
+        fruits.sort(function (a, b) { return b.length - a.length; });
+        document.write("</br></br><span>Вывод массива по длине слов : </span> ");
+        document.write(fruits.join("&nbsp;&nbsp"));
+    </script>
+</body>
+</html>
