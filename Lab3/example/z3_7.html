@@ -1,0 +1,17 @@
+<script>
+    function mean(a, b)
+    {
+        if (arguments.length > mean.length)
+        {
+            alert("Аргументов больше, чем надо");
+        }
+        var result = 0;
+        for (var i = 0; i < arguments.length; i++)
+        {
+            result += arguments[i];
+        }
+            return result / arguments.length;
+    }
+    document.write("Среднее - ", mean(2, 3), "<br>");
+    document.write("Среднее - ", mean(2, 4, 6));
+    </script>

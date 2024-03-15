@@ -1,0 +1,13 @@
+<script>
+    let today = new Date();
+    let newYearDay = new Date(today.getFullYear() + 1, 0, 1);
+    const day = 86400000;
+    const hour = 3600000;
+    const minute = 60000;
+    let time = newYearDay.getTime() - today.getTime();
+    let days = Math.floor(time / day);
+    let hours = Math.floor((time - days * day) / hour);
+    let minutes = Math.floor((time - days * day - hours * hour) / minute);
+    let str = days + " дней, " + hours + " часов, " + minutes + " минут.";
+    alert("До Нового года осталось "+String(str));
+    </script>
