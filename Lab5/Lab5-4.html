@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+    <section style="display: inline-flex;width: 100%;">
+        <input type="text" name="txt_box" id="txt" value="Напишите сюда текст" style="background-color: #2c2c2c; color: antiquewhite; border-radius: 5px; width: 80%; text-align: center; font-size: 24px;">
+        <input id="button" type="button" value="Выполнить скрипт" style="background-color: #2c2c2c; color: antiquewhite; border-radius: 5px; width: 20%; text-align: center; font-size: 24px;" onclick="start()">
+    </section>
+    <section style="color: antiquewhite;background-color: #2c2c2c;border: 2px solid rgb(75, 75, 75); margin-top: 2%; text-align: center;font-size: 24px;" id="res_new">
+    </section>
+    <script>
+        function shuffelWord(word) 
+        {
+            word_spl = word.split('');
+            let first = word_spl.shift();
+            let last = '';
+            if (word.length > 1) {last = word_spl.pop()}
+            for (let i = word_spl.length - 1; i > 0; i--) 
+            {
+                let j = Math.floor(Math.random() * (i + 1));
+                [word_spl[i], word_spl[j]] = [word_spl[j], word_spl[i]];
+            }
+            return first + word_spl.join("") + last;
+        }
+
+        function start()
+        {
+            let str = document.getElementById('txt').value;
+            let str_new=str.split(' ');
+            let res='';
+            for (let i = 0; i < str_new.length; i++) 
+            {
+                res = res + shuffelWord(str_new[i]) + ' ';
+            }
+            document.getElementById('res_new').innerHTML=res;
+        }
+    </script>
+</body>
+</html>
