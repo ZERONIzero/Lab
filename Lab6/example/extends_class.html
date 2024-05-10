@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+<script>
+    class Person{
+        constructor(name,age,group)
+        {
+            this.name=name;
+            this.age=age;
+            this.group=group;
+        }
+        static nameToUpper(person){
+            return person.name.toUpperCase();
+        }
+        info(){
+            document.write("Имя : "+this.name+"<br/>Возраст : "+this.age+"<br/>Группа : "+this.group+"<br/>");
+        }
+    }
+    class Employee extends Person{
+        constructor(name, age, group, company){
+            super(name, age, group);
+            this.company = company;
+        }
+        info(){
+            super.info();
+            document.write("Employee in "+this.company+"<br/>");
+        }
+        work(){
+            document.write(this.name+" is hard working<br/>");
+        }
+    }
+    let bob = new Person("Bob", 34,1216);
+    let personName = Person.nameToUpper(bob);
+    document.writeln("Upper name "+personName);
+    let bill = new Employee("Bill", 64, 1216,"EIKFU");
+    bob.info();
+    bill.info();
+    bill.work();
+</script>
+</body>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+    <script>
+        class Optical_media
+        {
+            constructor(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed){
+                this.Type_of_installation = Type_of_installation;
+                this.Type = Type;
+                this.Connection_interface = Connection_interface;
+                this.Maximum_reading_speed = Maximum_reading_speed;
+                this.Maximum_transmission_speed = Maximum_transmission_speed;
+            }
+            info(){
+                document.write(" Тип установки : " + this.Type_of_installation + 
+                    "<br/> Тип : " + this.Type + "<br/> Интерфейс подключения : "+
+                    this.Connection_interface+"<br/> Максимальная скорость чтения : "+
+                    this.Maximum_reading_speed+"<br/> Максимальная скорость передачи : "+
+                    this.Maximum_transmission_speed+"<br/>-----------------------------<br/>");
+            }
+        };
+        class Product extends Optical_media{
+            constructor(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed, company, entering_the_market, price){
+                super(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed);
+                this.company = company;
+                this.entering_the_market = entering_the_market;
+                this.price=parseFloat(price);
+            }
+            info() {
+                document.write("Компания :" + this.company + "<br/> Год выхода : "+this.entering_the_market + "<br/> Цена : "+ this.price + "<br/>");
+                super.info();
+            }
+        };
+        let List_product = [
+            new Product("Внутренний","CD_RW","USB","7800kbit/sec","2000kbit/sec","Samsung","2005",4000),
+            new Product("Внутренний","CD_R","USB","7800kbit/sec","2000kbit/sec","Samsung","2002",6600),
+            new Product("Внутренний","CD_RW","USB","7800kbit/sec","2000kbit/sec","Panasonic","2000",200),
+            new Product("Внешний","CD_RW","USB","7800kbit/sec","2000kbit/sec","Dexp","2009",8000),
+        ];
+        document.write("Длинна массива классов = "+List_product.length+"<br/>");
+        let min = Math.min(...List_product.map(Product => Product.price));
+        let max = Math.max(...List_product.map(Product => Product.price));
+        let summary_price = List_product.reduce((a,b)=> a+b.price,0);
+        let average_price = summary_price/List_product.length;
+        let kol_high = List_product.filter(Product=>Product.price > average_price).length;
+        document.write("Средняя цена "+average_price+"<br/>");
+        document.write("Общая цена "+summary_price+"<br/>");
+        document.write("Минимальная цена "+min+"<br/>");
+        document.write("Максимальная цена "+max+"<br/>");
+        document.write("Количество товаров больше средней цены "+kol_high+"<br/>");
+    </script>
+</body>

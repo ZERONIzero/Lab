@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+    <table>
+        <tr>
+            <th>Тип установки</th>
+            <th>Тип</th>
+            <th>Интерфейс подключения</th>
+            <th>Максимальная скорость чтения</th>
+            <th>Максимальная скорость передачи</th>
+            <th>Компания</th>
+            <th>Год выхода</th>
+            <th>Цена</th>
+        </tr>
+    <script>
+        class Optical_media
+        {
+            constructor(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed){
+                this.Type_of_installation = Type_of_installation;
+                this.Type = Type;
+                this.Connection_interface = Connection_interface;
+                this.Maximum_reading_speed = Maximum_reading_speed;
+                this.Maximum_transmission_speed = Maximum_transmission_speed;
+            }
+            info(){
+                document.write("<tr><td>" + this.Type_of_installation + 
+                    "</td><td>" + this.Type + "</td><td>"+
+                    this.Connection_interface+"</td><td>"+
+                    this.Maximum_reading_speed+"</td><td>"+
+                    this.Maximum_transmission_speed+"</td>");
+            }
+        };
+        class Product extends Optical_media{
+            constructor(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed, company, entering_the_market, price){
+                super(Type_of_installation,Type,Connection_interface,Maximum_reading_speed,Maximum_transmission_speed);
+                this.company = company;
+                this.entering_the_market = entering_the_market;
+                this.price=price;
+            }
+            info() {
+                super.info();
+                document.write("<td>" + this.company + "</td><td>"+this.entering_the_market + "</td><td>"+ this.price + "</td></tr>");
+            }
+        };
+        let one = new Product("Внутренний","CD_RW","USB","7800kbit/sec","2000kbit/sec","Samsung","2005",4000);
+        one.info();
+        let two = new Product("Внешний","CD_RW","USB","7800kbit/sec","2000kbit/sec","Dexp","2009",8000);
+        two.info();
+    </script>
+    </table>
+    <style>
+        td,th{
+            border: 1px solid antiquewhite;
+            text-align: center;
+        }
+    </style>
+</body>

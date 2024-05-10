@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+    <script>
+        let Optical_media = {
+            Type_of_installation:"Внутренний",
+            Type:"CD_RW",
+            Connection_interface:"USB",
+            Maximum_reading_speed:"7800kbit/sec",
+            Maximum_transmission_speed:"2000kbit/sec",
+            info: function(){
+                document.write(" Тип установки : " + this.Type_of_installation + 
+                    "<br/> Тип : " + this.Type + "<br/> Интерфейс подключения : "+
+                    this.Connection_interface+"<br/> Максимальная скорость чтения : "+
+                    this.Maximum_reading_speed+"<br/> Максимальная скорость передачи : "+
+                    this.Maximum_transmission_speed+"<br/>");
+            }
+        }
+        Optical_media.info();
+    </script>
+</body>

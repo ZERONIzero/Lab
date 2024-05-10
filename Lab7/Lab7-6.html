@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;">
+<section>
+    <ol style="color: antiquewhite;" id="list">
+        <li>
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat perspiciatis voluptatem! Odio obcaecati eos ipsam error quae, illum laudantium!" by Robert Roberto
+        </li>
+        <li>
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, molestiae?" by Miguel Fox
+        </li>
+        <li>"Lorem ipsum dolor sit amet." by Tobi Fox</li>
+        <li>"Lorem." by SystemDown</li>
+    </ol>
+</section>
+<script>
+    list.addEventListener("click", function (e) {
+        let target = e.target;
+        higlight(target);
+    });
+
+    list.addEventListener("dblclick", function (e) {
+        let target = e.target;
+        removerdb(target);
+    });
+
+    let selectLi;
+
+    function higlight(li) {
+        if (selectLi) {
+            selectLi.classList.remove("active");
+        }
+        selectLi = li;
+        selectLi.classList.add("active");
+    }
+
+    function removerdb(li)
+    {
+        selectLi = li;
+        selectLi.classList.remove("active");
+    }
+</script>
+<style>
+    .active {
+        background: rgba(244, 182, 87, 0.5);
+    }
+</style>
+</body>
+</html>

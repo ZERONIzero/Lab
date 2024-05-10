@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <link link rel="stylesheet" href="css/lab_S.css" type="text/css">
+    <link href="css/modal.css" rel="stylesheet">
+</head>
+    <body style="background-image: url('img/pattern-levitate-squares.png');" onload="makeform()">
+        <section class="One" id="one" style="height: 40%;">
+            <script src="js/modal.js"></script>
+            <script>
+                function makeform() {
+                    let form = document.createElement("section");
+                    form.style.paddingTop="2%";
+                    form.setAttribute("name","table_form");
+
+
+                    let textarea = document.createElement("textarea");
+                    textarea.setAttribute("name", "Zadanie");
+                    textarea.style.resize="None";
+                    textarea.style.width="96%";
+                    textarea.style.marginLeft="2%";
+                    textarea.style.marginRight="2%";
+                    textarea.style.marginBottom="2%";
+                    textarea.style.paddingBottom= String(parseInt((document.getElementById("one").clientHeight*30)/100))+"px";
+                    textarea.readOnly = "True";
+                    textarea.style.color = "black";
+                    textarea.textContent = "Написать скрипт, который находит среднее арифметическое введенных значений и выводит результат в поле формы при нажатии на кнопку «Вычислить». В программе предусмотреть обработку исключительной ситуации, когда пользователь не ввел значений (хотя бы одного) или введенные значения не являются числами, с выводом сообщения в модальном окне. Модальное окно реализовать самостоятельно, не использую стандартные диалоговые окна объекта window."
+                    textarea.style.border = "1px Solid";
+                    textarea.style.borderColor="#002fed";
+                    textarea.style.fontSize="24px";
+                    textarea.style.display="block";
+                
+
+                    let size_mar=parseInt(((document.getElementById("one").clientWidth)-163*3)/2);
+
+
+                    let val_a = document.createElement("input");
+                    val_a.setAttribute("type", "text");
+                    val_a.setAttribute("id", "a");
+                    val_a.setAttribute("placeholder", "Введите число а");
+                    val_a.style.marginLeft=String(size_mar)+"px";
+                
+
+                    let val_b = document.createElement("input");
+                    val_b.setAttribute("type", "text");
+                    val_b.setAttribute("id", "b");
+                    val_b.setAttribute("placeholder", "Введите число b");
+
+                
+                    let val_c = document.createElement("input");
+                    val_c.setAttribute("type", "text");
+                    val_c.setAttribute("id", "c");
+                    val_c.setAttribute("placeholder", "Введите число c");
+                    val_c.style.marginRight=String(size_mar)+"px";
+                
+
+                    let button = document.createElement("button");
+                    button.setAttribute("onclick","res()");
+                    button.style.display="block";
+                    button.style.margin="0 auto";
+                    button.style.marginTop="1%";
+                    button.className = "Answer";
+                    button.textContent="Получить ответ!";
+                    
+
+                    form.appendChild(textarea); 
+                    form.appendChild(val_a); 
+                    form.appendChild(val_b); 
+                    form.appendChild(val_c);   
+                    form.appendChild(button);
+
+
+                    document.getElementById("one").appendChild(form);
+                }
+
+                let resizeTimeout;
+                window.addEventListener('resize', function(event) {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(function(){
+                        window.location.reload();
+                    }, 500);
+                });
+
+                function res()
+                {
+                    let a_value = document.getElementById('a').value;
+                    let b_value = document.getElementById('b').value;
+                    let c_value = document.getElementById('c').value;
+                    if (!a_value || !b_value || !c_value) {
+                        const error_msg = new ItcModal({
+                            title : '<p>Ошибка</p>',
+                            content : '<p>Не все поля заполнены</p>'
+                        });
+                        error_msg.show();
+                        return;  
+                    }
+                    let mas=[a_value,b_value,c_value];
+                    for (let count = 0 ;count<mas.length;count+=1) {
+                        if (!testing(mas[count])) {
+                            const error_msg = new ItcModal({
+                                title : '<p>Ошибка</p>',
+                                content : '<p>В поле номер '+(count+1)+' введено неправильное значение</p>'
+                            });
+                            error_msg.show();
+                            return;
+                        }
+                    }
+                    let result = parseFloat(0);
+                    mas.forEach(x => { result += parseInt(x) })
+                    result=parseFloat(result/mas.length);
+                    const res_msg = new ItcModal({
+                        title : '<p>Результат</p>',
+                        content : '<p>Среднее арифметическое введенных значений = '+(result)+'</p>'
+                    });
+                    res_msg.show();
+                }
+                
+                function testing(number) {
+                    const pattern = /^[0-9]+$/;
+                    return pattern.test(number);
+                }
+
+            </script>
+        </section>
+    </body>
+</html>

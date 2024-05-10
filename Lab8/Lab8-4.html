@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/modal.css" rel="stylesheet">
+</head>
+<body>
+    <script src="js/modal.js"></script>
+    <form style="width: 60%; margin-left: auto; margin-right: auto;" class="container" id="form_l">
+        <div class="input-group" style="padding-top: 10px;">
+            <span class="input-group-text">Тип установки :</span>
+            <input type="text" class="form-control" id="On">
+        </div>
+        <div class="input-group" style="padding-top: 10px;">
+            <span class="input-group-text">Тип :</span>
+            <input type="text" class="form-control" id="Tw">
+        </div>
+        <div class="input-group" style="padding-top: 10px;">
+            <span class="input-group-text">Интерфейс подключения :</span>
+            <input type="text" class="form-control" id="Tr">
+        </div>
+        <div class="input-group" style="padding-top: 10px;">
+            <span class="input-group-text">Максимальная скорость чтения :</span>
+            <input type="number" class="form-control" id="Fo">
+        </div>
+        <div class="input-group" style="padding-top: 10px;">
+            <span class="input-group-text">Максимальная скорость передачи :</span>
+            <input type="number" class="form-control" id="Fi">
+        </div>
+        <section style="display: flex; justify-content: space-between;">
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Add object</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px;" onclick="make()">Show table</button>
+        </section>
+    </form>
+    <script>
+
+
+        const mas = [ ];
+
+        function handleFormSubmit(event)
+        {
+            event.preventDefault();
+            const t_1 = document.getElementById('On').value;
+            const t_2 = document.getElementById('Tw').value;
+            const t_3 = document.getElementById('Tr').value;
+            const t_4 = document.getElementById('Fo').value;
+            const t_5 = document.getElementById('Fi').value;
+            if (t_1 == '')
+            {
+                return;
+            }
+            if (t_2 == '')
+            {
+                return;
+            }
+            if (t_3 == '')
+            {
+                return;
+            }
+            if (t_4 == '')
+            {
+                return;
+            }
+            if (t_5 == '')
+            {
+                return;
+            }
+            mas.push({ Type_of_installation: t_1,
+                        Type: t_2,
+                        Connection_interface: t_3,
+                        Maximum_reading_speed: t_4,
+                        Maximum_transmission_speed: t_5});
+        }
+
+        const formt=document.getElementById('form_l');
+        formt.addEventListener('submit', handleFormSubmit);
+
+        // const error_msg = new ItcModal({
+        //                         title : '<p>Ошибка</p>',
+        //                         content : '<p>В поле номер '+(count+1)+' введено неправильное значение</p>'
+        //                     });
+
+        function make()
+        {
+            let table_full='<table style="color:black"><tr><th>Тип установки</th><th>Тип</th><th>Интерфейс подключения</th><th>Максимальная скорость чтения</th><th>Максимальная скорость передачи</th></tr>';
+            // for (let i=0;i<=mas.length;i++)
+            // {
+            //     // alert( mas[i].Connection_interface);
+            //     table_full=table_full+"<tr><td>" + String(mas[i].Type_of_installation) + 
+            //         "</td><td>" + String(mas.i.Type) + "</td><td>"+
+            //         String(mas[i].Connection_interface.value)+"</td><td>"+
+            //         String(mas[i].Maximum_reading_speed.value)+"</td><td>"+
+            //         String(mas[i].Maximum_transmission_speed.value)+"</td></tr>";
+            // }
+            mas.forEach((data, index) => {
+                table_full += `<tr><td>${data.Type_of_installation}</td><td>${data.Type}</td><td>${data.Connection_interface}</td><td>${data.Maximum_reading_speed}</td><td>${data.Maximum_transmission_speed}</td></tr>`;
+            });
+            table_full=table_full+'</table>';
+            const res = new ItcModal({
+                                title : '<p>Вывод Таблицы</p>',
+                                content : String(table_full)});
+            res.show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>

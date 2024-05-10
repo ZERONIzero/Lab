@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body>
+    <section class="menu">
+        <button id="1" class="color_t" style="background: #F55B47;" onclick="print_res(this.id)"></button>
+        <button id="2" class="color_t" style="background: #F4B657;" onclick="print_res(this.id)"></button>
+        <button id="3" class="color_t" style="background: #4A4B9B;" onclick="print_res(this.id)"></button>
+        <button id="4" class="color_t" style="background: #8DBFB3;" onclick="print_res(this.id)"></button>
+        <button id="5" class="color_t" style="background: #0A6477;" onclick="print_res(this.id)"></button>
+
+        <button id="6" class="color_t" style="background: #AED216;" onclick="print_res(this.id)"></button>
+        <button id="7" class="color_t" style="background: #EA5071;" onclick="print_res(this.id)"></button>
+        <button id="8" class="color_t" style="background: #DEDA3D;" onclick="print_res(this.id)"></button>
+        <button id="9" class="color_t" style="background: #9BCB78;" onclick="print_res(this.id)"></button>
+        <button id="10" class="color_t" style="background: #7BA8AA;" onclick="print_res(this.id)"></button>
+    </section>
+    <script>
+        function print_res(id)
+        {
+            let bgColor = document.getElementById(id).style.backgroundColor;
+            document.body.style.backgroundColor = bgColor;
+        }
+    </script>
+    <style>
+        .menu{
+            background-color: #2c2c2c;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-grid;
+            grid-template-columns: repeat(5,50px);
+            grid-template-rows: repeat(2,50px);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+        .color_t{
+            border-radius: 50%;
+        }
+    </style>
+</body>

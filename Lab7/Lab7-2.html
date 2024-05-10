@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Каракеян Арсен Смбатович</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+</head>
+<body style="background-color: #2c2c2c;color: antiquewhite;">
+    <ul>
+        <li><a href="https://google.com">https://google.com</a></li>
+        <li><a href="https://classroom.google.com">https://classroom.google.com</a></li>
+        <li><a href="Lab7-1.html">Lab7-1.html</a></li>
+    </ul>
+    <script>
+        for (let e of Array.from(document.links)) {
+            if (e.href.match(/^https?:/i) || e.href.match(/^http?:/i)) {
+                e.style.color = "gray";
+                e.style.textDecoration="None";
+                e.style.borderBottom="1px dashed";
+            }
+        }
+    </script>
+</body>
